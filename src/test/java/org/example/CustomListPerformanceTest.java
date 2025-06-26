@@ -21,7 +21,7 @@ public class CustomListPerformanceTest {
     }
 
     private static long deltaCalculator(long comparable, long base) {
-        return -100 * (base - comparable)/base;
+        return -100 * (base - comparable) / base;
     }
 
     private static class Result {
