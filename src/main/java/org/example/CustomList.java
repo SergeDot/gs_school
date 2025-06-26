@@ -145,6 +145,7 @@ public class CustomList<S> implements List<S> {
     }
 
     //TODO: Get
+
     /**
      * Returns the element at the specified position in this list.
      *
@@ -159,6 +160,7 @@ public class CustomList<S> implements List<S> {
     }
 
     //TODO: Set
+
     /**
      * Replaces the element at the specified position in this list with
      * the specified element.
@@ -236,6 +238,7 @@ public class CustomList<S> implements List<S> {
     }
 
     //TODO: Get size: size()
+
     /**
      * Returns the number of elements in this list.
      *
@@ -247,6 +250,7 @@ public class CustomList<S> implements List<S> {
     }
 
     //TODO: Check if empty: isEmpty()
+
     /**
      * Returns {@code true} if this list contains no elements.
      *
@@ -258,13 +262,13 @@ public class CustomList<S> implements List<S> {
     }
 
     //TODO: Clear
+
     /**
      * Removes all of the elements from this list.  The list will
      * be empty after this call returns.
      */
     @Override
     public void clear() {
-//        modCount++;
         final Object[] es = elementData;
         for (int to = size, i = size = 0; i < to; i++)
             es[i] = null;
@@ -339,6 +343,7 @@ public class CustomList<S> implements List<S> {
     }
 
     //TODO: Contains
+
     /**
      * Returns {@code true} if this list contains the specified element.
      * More formally, returns {@code true} if and only if this list contains
@@ -400,6 +405,7 @@ public class CustomList<S> implements List<S> {
     }
 
     //TODO: Contains All
+
     /**
      * {@inheritDoc}
      *
@@ -420,6 +426,7 @@ public class CustomList<S> implements List<S> {
     }
 
     //TODO: Add All
+
     /**
      * Appends all of the elements in the specified collection to the end of
      * this list, in the order that they are returned by the
@@ -490,7 +497,6 @@ public class CustomList<S> implements List<S> {
     private class Itr implements Iterator<S> {
         int cursor;       // index of next element to return
         int lastRet = -1; // index of last element returned; -1 if no such
-//        int expectedModCount = modCount;
 
         // prevent creating a synthetic constructor
         Itr() {
@@ -506,7 +512,7 @@ public class CustomList<S> implements List<S> {
             int i = cursor;
             if (i >= size)
                 throw new NoSuchElementException();
-//            Object[] elementData = elementData;
+            Object[] elementData = CustomList.this.elementData;
             cursor = i + 1;
             return (S) elementData[lastRet = i];
         }
@@ -531,6 +537,7 @@ public class CustomList<S> implements List<S> {
     }
 
     //TODO: List Iterator Class
+
     /**
      * An optimized version of AbstractList.ListItr
      */
@@ -589,6 +596,7 @@ public class CustomList<S> implements List<S> {
     }
 
     //TODO: List Iterator
+
     /**
      * Returns a list iterator over the elements in this list (in proper
      * sequence).
@@ -621,6 +629,7 @@ public class CustomList<S> implements List<S> {
     }
 
     //TODO: Equals
+
     /**
      * {@inheritDoc}
      */
