@@ -1,9 +1,12 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
+import static org.example.CustomTestAnnotations.*;
 
 // sources
 // https://tanbt.medium.com/memory-leak-and-memory-consumption-test-in-java-8f144955f1ab
@@ -28,13 +31,14 @@ public class CustomListPerformanceTest {
         String name;
         long timeMs;
         long memoryKB;
+
         Result(String name, long timeMs, long memoryKB) {
             this.name = name;
             this.timeMs = timeMs;
             this.memoryKB = memoryKB;
         }
     }
-    
+
     private Result testObjectBulkAddition(String name, List<Object> list, int count) {
         System.gc();
         Object object = new Object();
@@ -107,12 +111,12 @@ public class CustomListPerformanceTest {
         System.out.println();
     }
 
-
     @Test
+    @ThisIsTest
     void performanceReport() {
         System.out.println("\n--- Bulk Addition Test (1,000,000 integers) ---");
         Result customListResultInt = testIntBulkAddition("CustomList", new CustomList<>(), BULK_SIZE);
-        Result[] bulkResultsInt = new Result[] {
+        Result[] bulkResultsInt = new Result[]{
                 testIntBulkAddition("LinkedList", new LinkedList<>(), BULK_SIZE),
                 testIntBulkAddition("ArrayList", new ArrayList<>(), BULK_SIZE)
         };
@@ -120,7 +124,7 @@ public class CustomListPerformanceTest {
 
         System.out.println("\n--- Bulk Addition Test (1,000,000 objects) ---");
         Result customListResultObj = testObjectBulkAddition("CustomList", new CustomList<>(), BULK_SIZE);
-        Result[] bulkResultsObj = new Result[] {
+        Result[] bulkResultsObj = new Result[]{
                 testObjectBulkAddition("LinkedList", new LinkedList<>(), BULK_SIZE),
                 testObjectBulkAddition("ArrayList", new ArrayList<>(), BULK_SIZE)
         };
@@ -128,7 +132,7 @@ public class CustomListPerformanceTest {
 
         System.out.println("\n--- Add/Remove Test (10,000 add, 10,000 remove) ---");
         Result customListAddRemoveResult = testAddRemove("CustomList", new CustomList<>(), ADD_REMOVE_SIZE);
-        Result[] addRemoveResults = new Result[] {
+        Result[] addRemoveResults = new Result[]{
                 testAddRemove("LinkedList", new LinkedList<>(), ADD_REMOVE_SIZE),
                 testAddRemove("ArrayList", new ArrayList<>(), ADD_REMOVE_SIZE)
         };
