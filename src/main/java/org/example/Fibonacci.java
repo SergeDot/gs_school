@@ -13,7 +13,7 @@ public class Fibonacci {
     }
 
     // Memoized implementation
-    private List<Long> fibCacheList = new ArrayList<>(Arrays.asList(0l, 1l));
+    private List<Long> fibCacheList = new CustomList<>(Arrays.asList(0L, 1L));
 
     public long fibonacciMemoized(int n) {
         if (n <= 1) {
