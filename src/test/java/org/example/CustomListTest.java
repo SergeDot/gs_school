@@ -11,15 +11,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static org.example.CustomTestAnnotations.*;
+
 class CustomListTest {
     private static CustomList customList;
     private static List arrayList;
-    static final private String[] stringTestData = {"a", "b", "c", "d", "e"};
-    static final private int intListSize = 5;
-    static final private int[] intTestData = {1, 2, 3, 4, 5, 6};
-
+    private static final String[] stringTestData = {"a", "b", "c", "d", "e"};
+    private static final int intListSize = 5;
+    private static final int[] intTestData = {1, 2, 3, 4, 5, 6};
 
     @BeforeEach
+    @ThisIsArrangeBeforeEach
     void setUp() {
         this.customList = new CustomList(1);
         this.arrayList = new ArrayList(1);
@@ -56,6 +58,7 @@ class CustomListTest {
     }
 
     @Test
+    @ThisIsTest
     void should_create_empty_list() {
         CustomList emptyCustomList = create_empty_custom_list();
         List emptyArrayList = create_empty_array_list();
@@ -176,7 +179,9 @@ class CustomListTest {
         Assertions.assertTrue(list.isEmpty());
         Assertions.assertEquals(0, list.size());
     }
+
     @Test
+    @ThisIsTest
     void should_increase_capacity() {
         CustomList customList = new CustomList();
         int originalCapacity = customList.elementData.length;
