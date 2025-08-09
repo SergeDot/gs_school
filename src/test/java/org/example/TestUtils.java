@@ -157,4 +157,28 @@ public class TestUtils {
         }
         return result;
     }
+
+    static boolean isCustomList(List customList) {
+        String customListClassName = customList.getClass().toString();
+
+        return customListClassName.endsWith("CustomList");
+    }
+
+    static boolean isCustomLinkedList(List customList) {
+        String customListClassName = customList.getClass().toString();
+
+        return customListClassName.endsWith("CustomLinkedList");
+    }
+
+    static boolean isCustomStack(List customList) {
+        String customListClassName = customList.getClass().toString();
+
+        return customListClassName.endsWith("CustomStack");
+    }
+
+    static boolean isCustomQueue(List customList) {
+        String customListClassName = customList.getClass().toString();
+
+        return customListClassName.endsWith("CustomQueue");
+    }
 }

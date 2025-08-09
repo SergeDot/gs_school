@@ -277,7 +277,6 @@ public class CustomList<S> implements List<S> {
 
     /*TODO ************** AUXILIARY BONUS METHODS **************/
 
-
     /**
      * Trims the capacity of this {@code ArrayList} instance to be the
      * list's current size.  An application can use this operation to minimize
